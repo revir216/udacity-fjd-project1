@@ -5,7 +5,7 @@ import { ImageQueryParams } from "../routes/api/images/interface/imageQueryParam
 
 const request = supertest(app);
 
-describe("Image processing REST API", function () {
+describe("Image processing REST API", function (): void {
   describe("GET /api/images", function () {
     it("Gets the test endpoint without file name", async () => {
       const response = await request.get("/api/images");
@@ -13,13 +13,13 @@ describe("Image processing REST API", function () {
       expect(response.text).toBe("Missing file name!");
     });
 
-    it("Gets the test endpoint without filename", async () => {
+    it("Gets the test endpoint without filename", async (): Promise<void> => {
       const response = await request.get("/api/images?filename=fjord");
       expect(response.status).toBe(200);
     });
   });
 
-  describe("Test functional", function () {
+  describe("Test functional", function (): void {
     it("Test converting file ", async () => {
       const image: ImageQueryParams = {
         fileName: "fjord",

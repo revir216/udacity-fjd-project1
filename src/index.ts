@@ -4,7 +4,7 @@ import logger from "./utils/logger";
 
 const app = express();
 
-app.get("/", logger, (req, res) => {
+app.get("/", logger, (req, res): void => {
   res.send("Welcome to image processing apps.");
 });
 

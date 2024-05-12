@@ -13,11 +13,11 @@ export const getSaveImagePath = (file: ImageQueryParams): string => {
   );
 };
 
-export const checkImagesExist = (imagePath: string) => {
+export const checkImagesExist = (imagePath: string): boolean => {
   return fs.existsSync(imagePath);
 };
 
-export const getImage = async (image: ImageQueryParams) => {
+export const getImage = async (image: ImageQueryParams): Promise<string> => {
   if (image.fileName && !image.height && !image.width) {
     return getImagePath(image.fileName);
   }

@@ -4,7 +4,7 @@ import { getImage } from "./service/imagesService";
 
 const images = express.Router();
 
-images.get("", async (req, res) => {
+images.get("", async (req, res): Promise<Response | any> => {
   try {
     const params = new ImageQueryParams(req.query);
     if (!params) {
